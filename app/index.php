@@ -3,7 +3,10 @@
     echo '<br>';
     echo 'hehehehe';
 
-$conn = new mysqli('db', 'root', 'password', 'dockertest1');
+// docker_db1 -> is a phpmyadmin database
+// dockertest1 -> is a adminer database
+
+$conn = new mysqli('db', 'root', 'password', 'docker_db1');
 $sql = "SELECT * FROM docker_table1";
 
 if($res = $conn->query($sql)) {

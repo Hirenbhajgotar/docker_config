@@ -11,15 +11,29 @@ services:
     volumes: 
       - ./app:/var/www/html/
 
+  # db:
+  #   image: mysql
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mariadb:10.3
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
 
-  adminer:
-    image: adminer
+  phpmyadmin:
+    image: phpmyadmin
     restart: always
     ports:
-      - 8080:8080
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1

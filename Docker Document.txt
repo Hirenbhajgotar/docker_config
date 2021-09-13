@@ -29,6 +29,8 @@
 # Move Php Script file to app folder
 # Run Below Command
     -> sudo docker-compose up -d
+# Run Below Command to Stop docker-compose
+    -> sudo docker-compose down
 
 
 
