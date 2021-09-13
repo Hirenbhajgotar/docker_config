@@ -20,7 +20,15 @@
     -> docker run -d -p 80:80 --name my-apache-php-app -v "$PWD":/var/www/html php:7.2-apache
         - ("$PWD" is /home/anil/projects/docker-projects) - Present Working Directory
         - it run on localhost:80
+# You Need to install docker-compose
+    -> sudo apt install docker-compose
 
+--------------------------------------------------------------------------------
+
+# Create and Setup a docker-compose.yml file
+# Move Php Script file to app folder
+# Run Below Command
+    -> sudo docker-compose up -d
 
 
 
@@ -40,3 +48,5 @@
 -> docker search image_name
     - Search Docker Images 
     - View More on https://docs.docker.com/engine/reference/commandline/search/
+
+
