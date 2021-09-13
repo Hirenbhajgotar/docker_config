@@ -1,0 +1,42 @@
+# Create a Dockerfile inside a Root directory
+# Create a index.php file inside a Root directory
+# i.e. Inside Dockerfile
+    FROM php:7.4-cli 
+    COPY . /usr/src/myapp
+    WORKDIR /usr/src/myapp
+    CMD [ "php", "./index.php" ]
+
+    -> [php:7.4-cli] is a php Official Image
+    -> [COPY . /usr/src/myapp] - Existing directory to /usr/src/myapp inside Docker Container
+    -> [WORKDIR /usr/src/myapp] - Present Working Directory in your Command line to /usr/src/myapp inside Docker Container
+
+# Run Below Command to Create a Docker Image
+    -> docker build -t my-php-app .
+    - (my-php-app is a Image Repository Name)
+# Run Below Command to Create a Docker Container From Docker Image and Run it (it will output in CMD) 
+    -> docker run -it --rm --name my-running-app my-php-app
+    - (my-running-app is a Container Name and my-php-app is a Image Name)
+! Run Below Command to Run Php Script in Browser [Apache without a Dockerfile]
+    -> docker run -d -p 80:80 --name my-apache-php-app -v "$PWD":/var/www/html php:7.2-apache
+        - ("$PWD" is /home/anil/projects/docker-projects) - Present Working Directory
+        - it run on localhost:80
+
+
+
+
+* Docker Commands
+-> docker images
+    - List all Docker images
+-> docker ps
+    - List Running docker containers
+-> docker ps -a
+    - List all Containers
+-> docker rm container_name|container_id
+    - Remove Docker container
+-> docker stop container_name|container_id
+    - Stop Running Container
+-> docker start container_name|container_id
+    - Start Container
+-> docker search image_name
+    - Search Docker Images 
+    - View More on https://docs.docker.com/engine/reference/commandline/search/
